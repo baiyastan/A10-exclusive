@@ -5,6 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import banner from "../../assets/image/banner.png"
 import { getCategories } from '../../redux/category/categorySlice';
 import "./Banner.scss"
+import { setCategory } from '../../redux/product/productSlice';
 
 function Banner() {
     const dispatch = useDispatch()
@@ -14,13 +15,17 @@ function Banner() {
         dispatch(getCategories())
     }, [dispatch])
 
+    function sendItem (item) {
+        dispatch(setCategory(item))
+    }
+
     return (
         <div className='banner container'>
             <div className='sidebar'>
                 <ul>
                     {
                         categories.map((item, index) => (
-                            <li key={index}>{item}</li>
+                            <li onClick={() => sendItem(item)} key={index}>{item}</li>
                         ))
                     }
                 </ul>

@@ -8,11 +8,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 function Home() {
       const dispatch = useDispatch()
-      const {products, loading, erroe} = useSelector((state) => state.products)
+      const {products, loading, erroe, category} = useSelector((state) => state.products)
   
       useEffect(() => {
-          dispatch(getProducts("laptops"))
-      }, [dispatch])
+          dispatch(getProducts(category))
+      }, [dispatch, category])
+      
   return (
     <div>
       <Banner/>
