@@ -5,8 +5,13 @@ import "./Product.scss"
 
 function ProductList({data}) {
   return (
-    <div>
-      <Card/>
+    <div className='product-list container'>
+      {
+        data.map((item) => (
+
+          <Card key={item.id} product={item}/>
+        ))
+      }
     </div>
   )
 }

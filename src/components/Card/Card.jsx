@@ -5,13 +5,13 @@ import { FiEye } from "react-icons/fi";
 import star from "../../assets/svg/star.svg"
 import "./Card.scss"
 
-function Card() {
+function Card({product}) {
     const stars = new Array(5).fill(star);
 
   return (
     <div className='main'>
     <div className='inside'>
-      <img src='/game.png' alt='Gamepad'/>
+      <img src={product.thumbnail} alt='Gamepad'/>
       <button className='sale'>-40%</button>
       <button className='heart'>
         <FaRegHeart className='heart-in' />
